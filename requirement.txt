@@ -4,3 +4,4 @@ aiohttp
 git+https://github.com/Rapptz/discord.py@rewrite
 pokedex.py
 pillow
+youtube_dl
