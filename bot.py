@@ -10,12 +10,8 @@ from random import randint
 from random import choice
 import asyncio
 import os
-import itertools
-import sys
-import traceback
-from async_timeout import timeout
-from functools import partial
-from youtube_dl import YoutubeDL
+from PIL import Image, ImageDraw, ImageFont
+import io
 
 
 
@@ -403,6 +399,46 @@ async def insult(ctx, user : discord.Member=None):
     else:
         await ctx.send(ctx.message.author.mention + msg + random.choice(msg))
 
+
+@bot.command()
+async def profile(ctx, member: discord.Member = None):
+    ''': See your profile'''
+    member = member or ctx.message.author
+    x = Image.open("pngs/FBI.png")
+    x.load()
+    async with aiohttp.ClientSession() as cs:
+        async with cs.get(member.avatar_url_as(format='png')) as r:
+            b = io.BytesIO(await r.read())
+    x1 = Image.open(b)
+    x1.load()
+    font_type = ImageFont.truetype('arialbd.ttf', 15)
+    font_type1 = ImageFont.truetype('arialbd.ttf', 14)
+    draw = ImageDraw.Draw(x)
+    x.paste(x1.resize((75, 75)), (195, 55))
+    draw.text(xy=(80, 166), text=member.name, fill=(0, 0, 0), font=font_type)
+    draw.text(xy=(75, 204), text=ctx.guild.name, fill=(0, 0, 0), font=font_type1)
+    draw.text(xy=(68, 223), text=member.top_role.name, fill=(0, 0, 0), font=font_type1)
+    x.save("profile.png")
+    await ctx.send(file=discord.File("profile.png"))
+    os.system("rm profile.png")
+
+@bot.command()
+async def wanted(ctx, member: discord.Member = None):
+    ''': Hunt someone'''
+    member = member or ctx.message.author
+    x = Image.open("pngs/Wanted.png")
+    x.load()
+    async with aiohttp.ClientSession() as cs:
+        async with cs.get(member.avatar_url_as(format='png')) as r:
+            b = io.BytesIO(await r.read())
+    x1 = Image.open(b)
+    x3 = x.resize((400, 600))
+    x3.paste(x1.resize((300, 250)), (50, 160))
+    x3.save("wanted.png")
+    await ctx.send(file=discord.File("wanted.png"))
+    os.system("rm wanted.png")
+
+
 @bot.command()
 async def dog(ctx):
     ''''sends cute dog pics'''
@@ -411,13 +447,6 @@ async def dog(ctx):
     embed.set_image(url=r["message"])
     await ctx.send(embed=embed)
 
-@bot.command()
-async def meme(ctx):
-    ''''sends memes '''
-    r = requests.get("http://alpha-meme-maker.herokuapp.com").json()
-    embed=discord.Embed()
-    embed.set_image(url=r["message"])
-    await ctx.send(embed=embed)
 
 
 @bot.command(pass_context=True)
@@ -684,13 +713,130 @@ async def help(ctx):
     """: help commands"""
     embed = discord.Embed(title=f'''commands''', description=f'''pikachu bot prefix : p?''',color=discord.Colour.dark_purple())
     embed.set_thumbnail(url='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv16_7xeYF7jboCqijoHf2SzQrBgszZ90YzWP0klBCa-dyu6TnrA')
-    embed.add_field(name='Fun Commands :', value=f''''8ball bite bribe butts calculated cuddle poke daddy flirt hug insult dog kiss love pat pizza slap updog sword ''', inline=False)
+    embed.add_field(name='Fun Commands :', value=f'''' rps 8ball bite bribe butts calculated cuddle poke daddy flirt hug insult dog kiss love pat pizza slap updog sword wanted profile ''', inline=False)
     embed.add_field(name='Admin commands :', value=f''' warn perms kick prune purge ''', inline=False)
     embed.add_field(name='pokedex :', value=f''' pokemon''', inline=False)
     embed.add_field(name='search :', value=f''' youtube wikipedia ''', inline=False)
     embed.add_field(name=' server :', value=f'''Serverinfo invite server avatar''', inline=False)
     embed.add_field(name=' Whats New :', value=f''' Now i will welcome users through DMS when they join server by default no need to set it everytime for every server''', inline=False)
     await ctx.send(embed=embed)
+
+
+@bot.command(pass_context=True)
+async def pepe(ctx, member: discord.Member):
+    """kiss someone!"""
+    author = ctx.message.author.mention
+    mention = member.mention
+
+    pepe = "**  kissed you.{1}!**"
+
+    choices = ["http://i.imgur.com/vpIyEue.png",
+               "http://i.imgur.com/0koMC0v.jpg",
+               "http://i.imgur.com/9Q6KMZa.png",
+               "http://i.imgur.com/54xy6jr.png",
+               "http://i.imgur.com/QvCngiJ.jpg",
+               "http://i.imgur.com/ftWgrOE.jpg",
+               "http://i.imgur.com/rhDSqRv.jpg",
+               "http://i.imgur.com/89NZ3zM.jpg",
+               "http://i.imgur.com/I4cIH5b.png",
+               "http://i.imgur.com/GIFc4uX.png",
+               "http://i.imgur.com/bgShJpZ.png",
+               "http://i.imgur.com/jpfPLyn.png",
+               "http://i.imgur.com/pZeYoej.png",
+               "http://i.imgur.com/M8V9WKB.jpg",
+               "http://i.imgur.com/ZBzHxNk.jpg",
+               "http://i.imgur.com/xTyJ6xa.png",
+               "http://i.imgur.com/TOozxRQ.png",
+               "http://i.imgur.com/Eli5HdZ.png",
+               "http://i.imgur.com/pkikqcA.jpg",
+               "http://i.imgur.com/gMF8eo5.png",
+               "http://i.imgur.com/HYh8BUm.jpg",
+               "http://i.imgur.com/ZGVrRye.jpg",
+               "http://i.imgur.com/Au4F1px.jpg",
+               "http://i.imgur.com/gh36k9y.jpg",
+               "http://i.imgur.com/MHDoRuN.png",
+               "http://i.imgur.com/V3MJfyK.png",
+               "http://i.imgur.com/QGGTipc.jpg",
+               "http://i.imgur.com/PRFrTgz.png",
+               "http://i.imgur.com/9UBJrwM.jpg",
+               "http://i.imgur.com/WQY9Vhb.jpg",
+               "http://i.imgur.com/sIbQdou.jpg",
+               "http://i.imgur.com/LlUMg00.jpg",
+               "http://i.imgur.com/MmijlWa.png",
+               "http://i.imgur.com/i0CrtrX.png",
+               "http://i.imgur.com/Dfpudwp.jpg",
+               "http://i.imgur.com/hhg0wVF.gif",
+               "http://i.imgur.com/7VDiIHN.jpg",
+               "http://i.imgur.com/nxvXpNV.jpg",
+               "http://i.imgur.com/DZYEjrW.gif",
+               "http://i.imgur.com/mnyQ0Rh.jpg",
+               "http://i.imgur.com/aHawbbs.jpg",
+               "http://i.imgur.com/g8cCHV7.jpg",
+               "http://i.imgur.com/E2cMU7Y.jpg",
+               "http://i.imgur.com/PkmcgGF.jpg",
+               "http://i.imgur.com/7qLQ1xl.jpg",
+               "http://i.imgur.com/7qLQ1xl.jpg",
+               "http://i.imgur.com/arSsPwf.png",
+               "http://i.imgur.com/xcYh4iC.png",
+               "http://i.imgur.com/9692WND.jpg",
+               "http://i.imgur.com/diAK5Nu.jpg",
+               "http://i.imgur.com/zDs0tRW.jpg",
+               "http://i.imgur.com/PEM87nV.jpg",
+               "http://i.imgur.com/zlCzlND.jpg",
+               "http://i.imgur.com/n0OHxDl.jpg",
+               "http://i.imgur.com/TQRf1WH.png",
+               "http://i.imgur.com/zi9ad15.jpg",
+               "http://i.imgur.com/b8A6Qke.jpg",
+               "http://i.imgur.com/YuLapEu.png",
+               "http://i.imgur.com/fWFXkY1.jpg",
+               "http://i.imgur.com/i5vNvWU.png",
+               "http://i.imgur.com/oXwUwtJ.jpg",
+               "http://i.imgur.com/hadm4jV.jpg",
+               "http://i.imgur.com/gbCvkqo.png",
+               "http://i.imgur.com/wDiiWBG.jpg",
+               "http://i.imgur.com/Mvghx4V.jpg",
+               "http://i.imgur.com/SnTAjiJ.jpg",
+               "http://i.imgur.com/QvMYBnu.png",
+               "http://i.imgur.com/WkzPvfB.jpg",
+               "http://i.imgur.com/PfAm4ot.png",
+               "http://i.imgur.com/SIk4a45.png",
+               "http://i.imgur.com/aISFmQq.jpg",
+               "http://i.imgur.com/sMQkToE.png",
+               "http://i.imgur.com/7i3cBrP.png",
+               "http://i.imgur.com/1oMSz6e.png",
+               "http://i.imgur.com/nVCRnRv.png",
+               "http://i.imgur.com/FzWmxmi.jpg",
+               "http://i.imgur.com/rpUI20F.jpg",
+               "http://i.imgur.com/FDmnFDZ.jpg",
+               "http://i.imgur.com/40Z1Yyg.jpg",
+               "http://i.imgur.com/osy5Nu4.png",
+               "http://i.imgur.com/4w81MSS.jpg",
+               "http://i.imgur.com/qRXQFYa.png",
+               "http://i.imgur.com/A1af62j.jpg",
+               "http://i.imgur.com/wOc6fUe.jpg",
+               "http://i.imgur.com/Z6ILiJ4.jpg",
+               "http://i.imgur.com/537UpEJ.jpg",
+               "http://i.imgur.com/HDc6kko.png",
+               "http://i.imgur.com/oyLpuXq.jpg",
+               "http://i.imgur.com/iCmGtJS.jpg",
+               "http://i.imgur.com/MjpnlQm.png",
+               "http://i.imgur.com/c6MWRQ9.jpg"]
+
+
+    image = random.choice(choices)
+
+    embed = discord.Embed(description=pepe.format(author, mention), colour=discord.Colour(0xba4b5b))
+    embed.set_image(url=image)
+
+
+@bot.command(pass_context=True)
+async def rps(ctx, choice):
+    """"""
+    choices = ["rock", "paper", "scissors"]
+    await ctx.send("You chose {} | CPU chose {}".format(choice, random.choice(choices)))
+
+
+
 
 
 @bot.listen()
@@ -705,4 +851,7 @@ async def on_ready():
         await asyncio.sleep(10)
 
 
-bot.run(os.getenv('TOKEN'))
+
+
+
+bot.run("NDU3OTAzODkzMDc5MzkyMjU2.DlG8fw.rvN6FqhbTm1HUqyqtgDQF_i1a_A")
