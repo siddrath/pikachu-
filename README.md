@@ -1,2 +1,0 @@
-# testingbot
-testing bot
