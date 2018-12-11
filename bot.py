@@ -10,7 +10,8 @@ import random
 from discord.ext import commands
 from PIL import Image, ImageDraw, ImageFont
 
-bot = commands.Bot(description='gaming cord can do a lot more.....', command_prefix=commands.when_mentioned_or('gc!'))
+bot = commands.Bot(description='gaming cord can do a lot more.....', command_prefix=commands.when_mentioned_or('G.'))
+bot.remove_command('help')
 
 
 class BAsics():
@@ -18,7 +19,7 @@ class BAsics():
     @commands.command()
     async def owner(self, ctx):
         ': Name of my creator'
-        await ctx.send('My owner is <@411496838550781972> ')
+        await ctx.send('My owner is <@293800689266851850> ')
         await ctx.message.delete()
 
     @commands.command()
@@ -30,15 +31,12 @@ class BAsics():
         await m.edit(content='**Pong! Took: {}ms**'.format(int(time)))
         await ctx.message.delete()
 
-    @commands.command(pass_contex=True)
-    async def invite(self, ctx):
-        ': Invite me '
-        await ctx.send('https://discordapp.com/oauth2/authorize?client_id=481012071627096075&scope=bot&permissions=2146958847')
+   
 
      @bot.command()
     async def server(ctx):
     """Join bot server"""
-         await ctx.send("https://discord.gg/H4eNu9K")
+         await ctx.send("https://discord.gg/Tfzx8ar")
          ctx.counter(n)
 
     @commands.command()
@@ -251,368 +249,8 @@ class BAdmin():
             await ctx.send(f'''{ctx.author.mention} you aren't eligible for this''', delete_after=3)
 
 
-     class Fun():
-    """fun random commands"""
-
-    def __init__(ctx, bot):
-        ctx.bot = bot
-        ctx.toggle = False
-        ctx.nsword = ctx.nlove = ctx.nsquat = ctx.npizza = ctx.nbribe = ctx.ndad = ctx.ncalc \
-            = ctx.nbutt = ctx.ncom = ctx.nflirt = ctx.nup = 0
-
-
-@commands.command()
-async def sword(ctx,  *, user: discord.Member):
-    """Sword Duel!"""
-    author = ctx.message.author
-    if user.id == ctx.bot.user.id:
-        await ctx.send("I'm not the fighting kind")
-    else:
-        await ctx.send(author.mention + " and " + user.mention + " dueled for " + str(randint(2, 120)) +
-                            " gruesome hours! It was a long, heated battle, but " +
-                            choice([author.mention, user.mention]) + " came out victorious!")
-    ctx.counter(n)
-
-@commands.command()
-async def love(ctx, user: discord.Member):
-    """Found your one true love?"""
-    author = ctx.message.author
-    if user.id == ctx.bot.user.id:
-        await ctx.send("I am not capable of loving like you can. I'm sorry." )
-    else:
-        await ctx.send(author.mention + " is capable of loving " + user.mention + " a whopping " +
-                            str(randint(0, 100)) + "%!")
-    ctx.counter(n)
-
-@commands.command()
-async def squat(ctx):
-    """How is your workout going?"""
-    author = ctx.message.author
-    await ctx.send(author.mention + " puts on their game face and does " + str(randint(2, 1000)) +
-                        " squats in " + str(randint(4, 90)) + " minutes. Wurk it!")
-    ctx.counter(n)
-
-@commands.command()
-async def pizza(ctx):
-    """How many slices of pizza have you eaten today?"""
-    author = ctx.message.author
-    await ctx.send(author.mention + " has eaten " + str(randint(2, 120)) + " slices of pizza today.")
-    ctx.counter(n)
-
-@commands.command()
-async def bribe(ctx):
-    """Find out who is paying under the table"""
-    author = ctx.message.author
-    await ctx.send(author.mention + " has bribed " + ctx.bot.user.mention + " with " +
-                        str(randint(10, 10000)) + " dollars!")
-    ctx.counter(n)
-
-@commands.command()
-async def daddy(ctx):
-    """Pass the salt"""
-    author = ctx.message.author
-    await ctx.send("I'm kink shaming you, " + author.mention)
-    ctx.counter(n)
-
-@commands.command()
-async def calculated(ctx):
-    """That was 100% calculated!"""
-    await ctx.send("That was " + str(randint(0, 100)) + "% calculated!")
-    ctx.counter(n)
-
-@commands.command()
-async def butts(ctx):
-    """butts"""
-    await ctx.send("ლ(́◉◞౪◟◉‵ლ)")
-    ctx.counter(n)
-
-@commands.command()
-async def _commands(ctx):
-    """Command the bot"""
-    await ctx.send("Don't tell me what to do.")
-    ctx.counter(n)
-
-@commands.command()
-async def flirt(ctx):
-    """Slide into DMs"""
-    await ctx.send(" ;)) ))) hey b a b e ; ; ;))) ) ;)")
-    ctx.counter(n)
-
-@commands.command()
-async def updog(ctx):
-    """This is updog"""
-    await ctx.send("What's updog?")
-    ctx.counter(n)
-
-@commands.command(name="8ball")
-async def _ball(ctx, *, question):
-        ': Ask me a question'
-        question = question
-        answers = random.randint(1, 20)
-
-        if question == "":
-            return
-
-        elif answers == 1:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}``` It is certain```""")
-
-        elif answers == 2:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}```  It is decidedly so```""")
-
-        elif answers == 3:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}```  Without a doubt```""")
-
-        elif answers == 4:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}``` Yes definitely```""")
-
-        elif answers == 5:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}```  You may rely on it```""")
-
-        elif answers == 6:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}```  As i see it, yes```""")
-
-        elif answers == 7:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}```  Most likely```""")
-
-        elif answers == 8:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}```  Outlook good```""")
-
-        elif answers == 9:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}```  Yes```""")
-
-        elif answers == 10:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}```  Signs point to yes```""")
-
-        elif answers == 11:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}```  Reply hazy try again```""")
-
-        elif answers == 12:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}```  Ask again later```""")
-
-        elif answers == 13:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}```  Better not to tell you now```""")
-
-        elif answers == 14:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}``` Cannot predict now```""")
-
-        elif answers == 15:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}```  Concentrate and ask again```""")
-
-        elif answers == 16:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}```  Don't count on it```""")
-
-        elif answers == 17:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}```  My reply is no```""")
-
-        elif answers == 18:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}```  My sources say no```""")
-
-        elif answers == 19:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}```  Outlook not so good```""")
-
-        elif answers == 20:
-            await ctx.send(f"""\U0001f3b1 Question by {ctx.author.name}: {question}```  Very doubtful```""")
-
-
-@commands.command(pass_context=True)
-async def poke(ctx, member: discord.Member):
-    """poke someone!"""
-    author = ctx.message.author.mention
-    mention = member.mention
-
-    poke = "**{0} poked {1}!**"
-
-    choices = ['https://pa1.narvii.com/6021/b50b8078fa1d8e8f6d2ebfb085f106c642141723_hq.gif',
-               'https://media1.tenor.com/images/8fe23ec8e2c5e44964e5c11983ff6f41/tenor.gif',
-               'https://media.giphy.com/media/WvVzZ9mCyMjsc/giphy.gif',
-               'https://media.giphy.com/media/pWd3gD577gOqs/giphy.gif',
-               'http://gifimage.net/wp-content/uploads/2017/09/anime-poke-gif-12.gif', 'https://i.gifer.com/S00v.gif',
-               'https://i.imgur.com/1NMqz0i.gif']
-
-    image = random.choice(choices)
-
-    embed = discord.Embed(description=poke.format(author, mention), colour=discord.Colour(0xba4b5b))
-    embed.set_image(url=image)
-
-    await ctx.send(embed=embed)
-
-@commands.command(pass_context=True)
-async def hug(ctx, member: discord.Member):
-    """hug someone!"""
-    author = ctx.message.author.mention
-    mention = member.mention
-
-    hug = "**{0}Aww, I see you are lonely, take a hug <3{1}!**"
-
-    choices = ['https://cdn.discordapp.com/attachments/447337220895145998/466226631778893824/hug-rk_6GyncG.gif',
-               'https://cdn.discordapp.com/attachments/447337220895145998/466227315110576129/hug-ry6o__7D-.gif',
-               'https://cdn.discordapp.com/attachments/447337220895145998/466227511165190175/hug-Bk5haAocG.gif',
-               'https://cdn.discordapp.com/attachments/447337220895145998/466228974326906891/hug-BkBs2uk_b.gif',
-               'https://cdn.discordapp.com/attachments/447337220895145998/466229286966394881/hug-HkfgF_QvW.gif'
-               'https://cdn.discordapp.com/attachments/447337220895145998/466230001872666635/hug-BkZngAYtb.gif'
-               'https://cdn.discordapp.com/attachments/447337220895145998/466230123209687040/hug-Bk5T2_1Ob.gif'
-               'https://cdn.discordapp.com/attachments/447337220895145998/466230234795212802/hug-Hy4hxRKtW.gif']
-
-
-    image = random.choice(choices)
-
-    embed = discord.Embed(description=hug.format(author, mention), colour=discord.Colour(0xba4b5b))
-    embed.set_image(url=image)
-
-    await ctx.send(embed=embed)
-
-@commands.command(pass_context=True)
-async def slap(ctx, member: discord.Member):
-    """Slap someone!"""
-    author = ctx.message.author.mention
-    mention = member.mention
-
-    slap = "**{0}Hmm, why do you want this?Slaps.{1}!**"
-
-    choices = ['https://cdn.discordapp.com/attachments/447337220895145998/466229677300908042/slap-rJYqQyKv-.gif',
-               'https://cdn.discordapp.com/attachments/447337220895145998/466229535059345408/slap-r1PXzRYtZ.gif',
-               'https://cdn.discordapp.com/attachments/447337220895145998/466229453236731904/slap-SkSCyl5yz.gif'
-               'https://cdn.discordapp.com/attachments/447337220895145998/466231429337055242/slap-B1-nQyFDb.gif',
-               'https://cdn.discordapp.com/attachments/447337220895145998/466231614352130048/slap-HkskD56OG.gif'
-               'https://cdn.discordapp.com/attachments/447337220895145998/466231875120267284/slap-By2iXyFw-.gif'
-               'https://cdn.discordapp.com/attachments/447337220895145998/466232154112917504/slap-SkKn-xc1f.gif'
-               'https://cdn.discordapp.com/attachments/447337220895145998/466232493889290241/slap-rJrnXJYPb.gif']
-
-
-    image = random.choice(choices)
-
-    embed = discord.Embed(description=slap.format(author, mention), colour=discord.Colour(0xba4b5b))
-    embed.set_image(url=image)
-
-    await ctx.send(embed=embed)
-
-
-@commands.command()
-async def dog(ctx):
-    ''''sends cute dog pics'''
-    r = requests.get("https://dog.ceo/api/breeds/image/random").json()
-    embed=discord.Embed()
-    embed.set_image(url=r["message"])
-    await ctx.send(embed=embed)
-
-
-
-@commands.command(pass_context=True, no_pm=True)
-async def insult(ctx, user : discord.Member=None):
-    """Insult the user"""
-
-    msg =" How original. No one else had thought of trying to get the bot to insult itself. I applaud your creativity. Yawn. Perhaps this is why you don't have friends. You don't add anything new to any conversation. You are more of a bot than me, predictable answers, and absolutely dull to have an actual conversation with."
-    if user != None:
-        if user.id == ctx.bot.user.id:
-            user = ctx.message.author
-            await ctx.send(user.mention + msg)
-        else:
-            await ctx.send(user.mention + msg + random.choice(msg))
-    else:
-        await ctx.send(ctx.message.author.mention + msg + random.choice(msg))
-
-@commands.command(pass_context=True)
-async def bite(ctx, member: discord.Member):
-    """bites  someone!"""
-    author = ctx.message.author.mention
-    mention = member.mention
-
-    bite = "**{0}bites you.{1}!**"
-
-    choices = ['https://cdn.discordapp.com/attachments/456701536912015361/466571069973856256/bite-HkutgeXob.gif',
-               'https://cdn.discordapp.com/attachments/456701536912015361/466571762339938304/bite-ry00lxmob.gif',
-               'https://cdn.discordapp.com/attachments/456701536912015361/466572007258193920/bite-H1_Jbemjb.gif'
-               'https://cdn.discordapp.com/attachments/456701536912015361/466572188372434964/bite-H1hige7sZ.gif',
-               'https://cdn.discordapp.com/attachments/456701536912015361/466572377233293322/bite-Hk1sxlQjZ.gif'
-               'https://cdn.discordapp.com/attachments/456701536912015361/466572552739880961/bite-rkakblmiZ.gif'
-               'https://cdn.discordapp.com/attachments/456701536912015361/466572804385669120/bite-BJXRmfr6-.gif'
-               'https://cdn.discordapp.com/attachments/456701536912015361/466573024078987284/bite-ry3pQGraW.gif']
-
-
-    image = random.choice(choices)
-
-    embed = discord.Embed(description=bite.format(author, mention), colour=discord.Colour(0xba4b5b))
-    embed.set_image(url=image)
-
-    await ctx.send(embed=embed)
-
-@commands.command(pass_context=True)
-async def cuddle(ctx, member: discord.Member):
-    """cuddle  someone!"""
-    author = ctx.message.author.mention
-    mention = member.mention
-
-    cuddle = "**cuddles you.{1}!**"
-
-    choices = ['https://cdn.discordapp.com/attachments/456701536912015361/466573538841591809/cuddle-SJn18IXP-.gif',
-               'https://cdn.discordapp.com/attachments/456701536912015361/466573996201082900/cuddle-r1s9RqB7G.gif',
-               'https://cdn.discordapp.com/attachments/456701536912015361/466574139805794306/cuddle-SJceIU7wZ.gif'
-               'https://cdn.discordapp.com/attachments/456701536912015361/466574279127859200/cuddle-r1XEOymib.gif',
-               'https://cdn.discordapp.com/attachments/456701536912015361/466574467070427156/cuddle-S1T91Att-.gif'
-               'https://cdn.discordapp.com/attachments/456701536912015361/466574644577697792/cuddle-BkZCSI7Pb.gif'
-               'https://cdn.discordapp.com/attachments/456701536912015361/466574850375548939/cuddle-Byd1IUmP-.gif'
-               'https://cdn.discordapp.com/attachments/456701536912015361/466575399862665216/cuddle-BkN0rIQDZ.gif']
-
-
-    image = random.choice(choices)
-
-    embed = discord.Embed(description=cuddle.format(author, mention), colour=discord.Colour(0xba4b5b))
-    embed.set_image(url=image)
-
-    await ctx.send(embed=embed)
-
-
-@commands.command(pass_context=True)
-async def pat(ctx, member: discord.Member):
-    """pat someone!"""
-    author = ctx.message.author.mention
-    mention = member.mention
-
-    pat = "**you have been patted .{1}!**"
-
-    choices = ['https://cdn.discordapp.com/attachments/456701536912015361/466577618771378176/pat-rktsca40-.gif',
-               'https://cdn.discordapp.com/attachments/456701536912015361/466577986209185812/pat-rkZbJAYKW.gif',
-               'https://cdn.discordapp.com/attachments/456701536912015361/466578464619626496/pat-SJva1kFv-.gif'
-               'https://cdn.discordapp.com/attachments/456701536912015361/466578677090484224/pat-BkJBQlckz.gif',
-               'https://cdn.discordapp.com/attachments/456701536912015361/466578825468182538/pat-H1s5hx0Bf.gif'
-               'https://cdn.discordapp.com/attachments/456701536912015361/466579159435706380/pat-rJMskkFvb.gif'
-               'https://cdn.discordapp.com/attachments/456701536912015361/466579338490544128/pat-rkBZkRttW.gif'
-               'https://cdn.discordapp.com/attachments/456701536912015361/466579500117917727/pat-Sk2FyQHpZ.gif']
-
-
-    image = random.choice(choices)
-
-    embed = discord.Embed(description=pat.format(author, mention), colour=discord.Colour(0xba4b5b))
-    embed.set_image(url=image)
-
-    await ctx.send(embed=embed)
-
-@commands.command(pass_context=True)
-async def kiss(ctx, member: discord.Member):
-    """kiss someone!"""
-    author = ctx.message.author.mention
-    mention = member.mention
-
-    kiss = "**  kissed you.{1}!**"
-
-    choices = ['https://cdn.discordapp.com/attachments/456701536912015361/466579840070582284/kiss-B1MJ2aODb.gif',
-               'https://cdn.discordapp.com/attachments/456701536912015361/466580423116324874/kiss-Hkt-nTOwW.gif',
-               'https://cdn.discordapp.com/attachments/456701536912015361/466581686591946763/kiss-r1VWnTuPW.gif'
-               'https://cdn.discordapp.com/attachments/456701536912015361/466582897755947017/kiss-BkUJNec1M.gif',
-               'https://cdn.discordapp.com/attachments/456701536912015361/466583102047780914/kiss-Sk1k3TdPW.gif'
-               'https://cdn.discordapp.com/attachments/456701536912015361/466583257341755392/kiss-BJv0o6uDZ.gif'
-               'https://cdn.discordapp.com/attachments/456701536912015361/466583404222087168/kiss-S1PCJWASf.gif'
-               'https://cdn.discordapp.com/attachments/456701536912015361/466583780736499712/kiss-SJ3dXCKtW.gif']
-
-
-    image = random.choice(choices)
-
-    embed = discord.Embed(description=kiss.format(author, mention), colour=discord.Colour(0xba4b5b))
-    embed.set_image(url=image)
-
-    await ctx.send(embed=embed)
-
-@commands.command(pass_context=True, name='youtube', no_pm=True)
+    
+@bot.command(pass_context=True, name='youtube', no_pm=True)
 async def youtube(ctx, *, query: str):
     """Search on Youtube"""
     try:
@@ -631,7 +269,7 @@ async def youtube(ctx, *, query: str):
         message = 'Something went terribly wrong! [{}]'.format(e)
         await  ctx.send(message)
 
-@commands.command(pass_context=True, name='wikipedia', aliases=['wiki', 'w'])
+@bot.command(pass_context=True, name='wikipedia', aliases=['wiki', 'w'])
 async def wikipedia(ctx, *, query: str):
     """
     Get information from Wikipedia
@@ -668,80 +306,9 @@ async def wikipedia(ctx, *, query: str):
 
 
 
- class Search():
+ 
 
- @commands.command(
-    name="pokemon")
-async def _pokemon(ctx, *, pokemon):
-    """: Check info about pokemon"""
-
-    pokedex1 = pokedex.Pokedex(
-        version='v1',
-        user_agent='ExampleApp (https://example.com, v2.0.1)')
-    x = pokedex1.get_pokemon_by_name(f'''{pokemon}''')
-    embed = discord.Embed(
-        title=f'''{x[0]['name']}''',
-        description=f'''Discovered in generation {x[0]['gen']}''',
-        color=discord.Colour.dark_purple())
-    embed.add_field(
-        name='Species', value=f'''{x[0]['species']}''', inline=False)
-    if not x[0]['gender']:
-        embed.add_field(name='Gender', value="No Gender", inline=False)
-    else:
-        embed.add_field(
-            name='Gender',
-            value=
-            f'''Male:  {x[0]['gender'][0]}%\nFemale:  {x[0]['gender'][1]}%''',
-            inline=False)
-    embed.add_field(
-        name='Type',
-        value=f'''{', '.join(str(i) for i in x[0]['types'])}''',
-        inline=False)
-    embed.set_image(url=f'''{x[0]['sprite']}''')
-    embed.add_field(
-        name='Abilities',
-        value=
-        f'''{', '.join(str(i)for i in x[0]['abilities']['normal'])}''',
-        inline=False)
-    if not x[0]['abilities']['hidden']:
-        embed.add_field(
-            name='Hidden Abilities',
-            value="No hidden talents like me",
-            inline=False)
-    else:
-        embed.add_field(
-            name='Hidden Abilities',
-            value=
-            f'''{', '.join(str(i)for i in x[0]['abilities']['hidden'])}''',
-            inline=False)
-    embed.add_field(
-        name='Egg Groups',
-        value=f'''{', '.join(str(i)for i in x[0]['eggGroups'])}''',
-        inline=False)
-    embed.add_field(
-        name='Evolution',
-        value=
-        f'''{' => '.join(str(i)for i in x[0]['family']['evolutionLine'])}''',
-        inline=False)
-    embed.add_field(name='Height', value=x[0]['height'], inline=False)
-    embed.add_field(name='Weight', value=x[0]['weight'], inline=False)
-    if x[0]['legendary']:
-        a = 'Legendary'
-    elif x[0]['starter']:
-        a = 'Starter'
-    elif x[0]['mythical']:
-        a = 'Mythical'
-    elif x[0]['ultraBeast']:
-        a = 'Ultra Beast'
-    elif x[0]['mega']:
-        a = 'Mega'
-    else:
-        a = '-'
-    embed.add_field(name='Notes', value=a, inline=False)
-    await ctx.send(embed=embed)
-
-
-@commands.command(pass_context=True)
+@bot.command(pass_context=True)
 async def pepe(ctx, user: discord.Member = None):
     """kiss someone!"""
     user = user or ctx.message.author
@@ -852,47 +419,10 @@ async def pepe(ctx, user: discord.Member = None):
 
 
 
-@commands.cooldown(1,120 , commands.BucketType.user)
-@commands.command(aliases= ["s"])
-async def spawn(ctx, user: discord.Member = None): 
-    user = user or ctx.message.author
-     
 
 
-    spawn = "**  A wild .{1}!**"
-
-    
-    choices = ["http://www.pokestadium.com/sprites/xy/shiny/xerneas.gif",
-                 "http://www.pokestadium.com/sprites/xy/xerneas-active.gif",
-                 "http://www.pokestadium.com/sprites/xy/zekrom.gif",
-                 "http://www.pokestadium.com/sprites/xy/charizard.gif",
-                 "http://www.pokestadium.com/sprites/xy/shiny/charizard.gif",
-                 "http://www.pokestadium.com/sprites/xy/yveltal.gif",
-                 "http://www.pokestadium.com/sprites/xy/shiny/yveltal.gif",
-                 "http://www.pokestadium.com/sprites/xy/raikou.gif",
-                 "http://www.pokestadium.com/sprites/xy/shiny/raikou.gif",
-                 "https://cdn.discordapp.com/attachments/386324037552308224/503050326627319809/PokecordSpawn.jpg",
-                 "https://cdn.discordapp.com/attachments/386324037552308224/503050526603214848/PokecordSpawn.jpg",
-                 "https://cdn.discordapp.com/attachments/386324037552308224/503050157286227968/PokecordSpawn.jpg",
-                 "https://cdn.discordapp.com/attachments/482056981931098112/502861665180581908/PokecordSpawn.jpg",
-                 "https://img.nijimen.net/uploads/topic/wide_image/18879/78ea52a0-5e3c-48ee-bbe4-8ff6fe38764b.jpg"
-                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE1NX0EsJ0SUcP1LEdglNTN12UIatAoXfA1rxuz1fkL8Q8vWL9zQ",
-                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOENKjnLEl2H8OdMbOaVqJT0QWr0toBNsWfKa3wQWh_mj827UsLg",
-                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo8_G9cOLmqWNGNFh1BxSx_bkpNOxIW7sv2bqlClQgI_u9TiVx"]
-      
-    image = random.choice(choices)
-
-    embed = discord.Embed(description=f"""{user.name}""", colour=discord.Colour(0xba4b5b))
-    embed.add_field(name=' A wild pokémon has appeared!', value=f''' ~~Guess the pokemon~~''', inline=False)
-    embed.set_image(url=image)
-
-
-
-    await ctx.send(embed=embed)
-
-
-@commands.command()
-async def cat(ctx):
+@bot.command()
+async def dog(ctx):
         """Get a random cat image!
 
         **Usage:** `g_dog`
@@ -917,7 +447,7 @@ async def cat(ctx):
 
 
 
-@commands.command()
+@bot.command()
 async def neko(ctx):
     ''''sends cute dog pics'''
     r = requests.get("https://nekos.life/api/neko").json()
@@ -930,29 +460,6 @@ async def neko(ctx):
     embed.set_image(url=r["neko"])
     await ctx.send(content=content[con],embed=embed)
 
-@commands.command(hidden = True)
-async def code(ctx, command):
-        ''': getting the code for command'''
-
-        a = inspect.getsource(bot.get_command(command).callback)
-        embed = discord.Embed(title='Code', description="```py\n"+a+"```",color=discord.Colour.dark_red())
-        embed.set_thumbnail(url='https://scontent.fdel3-1.fna.fbcdn.net/v/t1.0-9/20155639_1952222755056855_6450365686627691750_n.png?oh=0b2c4ecd1409396b05f71c31dd07dd2d&oe=5AE7B998')
-        await ctx.send(embed=embed)
-
-@commands.command(hidden = True)
-async def benchmark(ctx):
-        '''Benchmark'''
-        process = psutil.Process()
-        memory = process.memory_info().rss / 2 ** 20
-        process.cpu_percent()
-        embed = discord.Embed()
-        embed.add_field(name = "RAM", value = "{:.2f} MiB".format(memory))
-        embed.add_field(name = "CPU", value = "Calculating CPU usage..")
-        embed = await ctx.send(embed = embed)
-        await asyncio.sleep(1)
-        cpu = process.cpu_percent() / psutil.cpu_count()
-        embed.set_field_at(1, name = "CPU", value = "{}%".format(cpu))
-        await ctx.edit_message(message, embed = embed) 
 
 
 
@@ -961,11 +468,214 @@ async def benchmark(ctx):
 
 
 
-@commands.command(pass_context=True)
+
+
+@bot.command(pass_context=True)
 async def rps(ctx, choice):
     """"""
     choices = ["rock", "paper", "scissors"]
     await ctx.send("You chose {} | CPU chose {}".format(choice, random.choice(choices)))
+    
+@bot.command(aliases=['cmds'])
+async def commands(ctx):
+    member = ctx.author
+    embed = discord.Embed(title="Prefix", colour=discord.Colour.dark_blue(), description="G.")
+    embed.add_field(name='Commands', value='gbot \nserverinfo \nuserinfo \nhelp \njoined_at \nstats \nping \ninvme \navatar \npoll \nvote \nbug_report \nfeedback \nbbff')
+    embed.add_field(name='Admin/Mod Commands',value='ban \nkick \npurge \nswarn - soft warn \nwarn - reg. warn \n add_role \nmute \nunmute')
+    await ctx.send ('Check your :regional_indicator_d: :regional_indicator_m:')
+    await member.send(embed=embed)
+    
+@bot.command()
+async def gbot(ctx):
+    embed = discord.Embed(title="G Bot", colour=discord.Colour.dark_blue(),description="Created by: <@293800689266851850>", inline=False)
+    embed.set_thumbnail(url=f'''{bot.user.avatar_url}''')
+    embed.add_field(name='Contributor(s)', value="ir3#3333 \n------------ \nGarry#2508", inline=False)
+    embed.add_field(name='Version', value="1.0.0 [ALPHA]")
+    embed.set_footer(text = "Made with python 3.6.6", icon_url = 'https://cdn.discordapp.com/emojis/490607334876381204.png?v=1')
+    await ctx.send(embed=embed)
+    
+@bot.command()
+async def help(ctx):
+    embed=discord.Embed(title='So, you need help?', colour=discord.Colour.red(), description='[Support Discord](https://discord.gg/uHqmhgf)')
+    embed.add_field(name='-----------', value='[Website](https://gbot.bubbleapps.io)')
+    await ctx.send(embed=embed)
+
+
+
+@bot.command(pass_context=True)
+async def joined_at(ctx, member: discord.Member = None):
+    if member is None:
+        member = ctx.message.author
+        em = discord.Embed(title='Member', colour=discord.Colour.dark_red(),
+                            description=f'''{member} joined at {member.joined_at}''', timestamp=datetime.datetime.utcnow(), inline=False)
+        em.set_thumbnail(url=member.avatar_url)
+        await ctx.send(embed=em)
+        
+@bot.command()
+async def invme(ctx):
+    embed=discord.Embed (title="So you want me huh?", colour=discord.Colour.dark_blue(), description='[Invite me](https://discordapp.com/api/oauth2/authorize?client_id=493470893331447820&scope=bot)')
+    await ctx.send (embed=embed)
+    
+ @bot.command()
+async def poll(ctx, *, poll_message):
+        embed = discord.Embed(title=f'''{ctx.author}'s new poll''', colour=discord.Colour.dark_blue(), description=poll_message)
+        try:
+            await ctx.message.delete()
+        except:
+            pass
+        msg = await ctx.send(embed=embed)        
+        try:
+            await msg.add_reaction("\N{THUMBS UP SIGN}")
+            await msg.add_reaction("\N{THUMBS DOWN SIGN}")
+        except:
+            await msg.delete()
+            await ctx.send("Make sure i can add reactions to the poll")
+
+@bot.command()
+async def vote(ctx):
+    embed = discord.Embed(title='Vote for me!', colour=discord.Colour.blue(), description='[Vote Here](https://discordbots.org/bot/493470893331447820/vote)')
+    embed.set_thumbnail(url=f'''{bot.user.avatar_url}''')
+    embed.set_footer(text='Thanks for considering voting! - Gavyn S. ✓ᵛᵉʳᶦᶠᶦᵉᵈ#0981')
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def feedback(ctx, * , feedback):
+    channel = bot.get_channel(515220018997231676)
+    embed = discord.Embed(title="Feedback Submission :robot:", colour=discord.Colour.red(), description=f'''Submitted by- {ctx.author}''')
+    embed.add_field(name="Feedback", value=feedback, inline=False)
+    embed.set_footer(text=f"From {ctx.guild.name} ({ctx.guild.id})")
+    await channel.send(embed=embed)
+    await ctx.send("Your Feedback Has Been Submitted")
+
+@bot.command()
+async def bug_report(ctx, * , feedback):
+    channel = bot.get_channel(515220018997231676)
+    embed = discord.Embed(title="Bug Submission :robot:", colour=discord.Colour.red(), description=f'''Submitted by- {ctx.author}''')
+    embed.add_field(name="Feedback", value=feedback, inline=False)
+    embed.set_footer(text=f"From {ctx.guild.name} ({ctx.guild.id})")
+    await channel.send(embed=embed)
+    await ctx.send("Your Feedback Has Been Submitted")
+
+@bot.command(pass_context=True, aliases=['whois'])
+async def userinfo(ctx, member: discord.Member = None):
+
+    name="user",
+    if member is None:
+        member = ctx.author
+
+    e = discord.Embed(title=f"User: {member.name}",description=f"This is all the information I could find on {member.name}...",)
+    e.set_thumbnail(url=member.avatar_url_as(static_format="png"))
+    e.add_field(name="Name",value=member.name)
+    e.add_field(name="Discriminator",value=f"#{member.discriminator}")
+    e.add_field(name="ID",value=str(member.id))
+    e.add_field(name="Bot",value=str(member.bot).capitalize())
+    e.add_field(name="Highest Role",value=member.top_role.mention)
+    e.add_field(name="Join Position",value=f"#{sorted(member.guild.members, key=lambda m: m.joined_at).index(member) + 1}")
+    e.add_field(name="Created Account",value=member.created_at.strftime("%c"))
+    e.add_field(name="Joined This Server",value=member.joined_at.strftime("%c"))
+    e.add_field(name="Roles",value=f"{len(member.roles)-1} Roles: {', '.join([r.mention for r in member.roles if not r.is_default()])}")
+    await ctx.send(embed=e)
+
+
+@bot.command()
+async def servers(ctx):
+    a = []
+    for i in bot.guilds:
+        a.append(i.name)
+        await ctx.send(", ".join(a))
+
+
+@bot.command()
+async def bbff(ctx):
+    embed=discord.Embed(title='My Best Bot Friends Forever', colour=discord.Colour.red(), description='Add them to your server!')
+    embed.add_field(name='PewDiePie#7718', value='[Invite Here](https://discordapp.com/oauth2/authorize?client_id=508143906811019269&scope=bot&permissions=2146958847)')
+    embed.add_field(name='T-Series#7576', value='[Invite Here](https://discordapp.com/oauth2/authorize?client_id=500868806776979462&scope=bot&permissions=72710)')
+    embed.add_field(name='Touka#9248', value='[Invite Here](https://discordapp.com/oauth2/authorize?client_id=486093523024609292&scope=bot&permissions=2146958591)')
+    embed.add_field(name='Fusion#2584', value='[Invite Here](https://discordapp.com/api/oauth2/authorize?client_id=469204895946244106&permissions=8&scope=bot)')
+    embed.set_footer(text='Sincerely, Gavyn S. ✓ᵛᵉʳᶦᶠᶦᵉᵈ#0981', icon_url = 'https://cdn.discordapp.com/emojis/519688994120794132.png?v=1')
+    await ctx.send (embed=embed)
+
+
+#gavyn only
+
+@bot.command()
+async def quit(ctx):
+    '''Quits bot'''
+    if ctx.author.id == 293800689266851850:
+        await bot.close()
+    else:
+        await ctx.send('Permission Denied')
+
+#moderation
+
+@bot.command()
+async def add_role(ctx, member: discord.Member, role: discord.Role):
+    if ctx.author.permissions_in(ctx.channel).kick_members or ctx.author.permissions_in(ctx.channel).manage_messages:
+        await member.add_roles(role)
+    else:
+        e = discord.Embed(title='Denied', colour=discord.Colour.gold(), description=f'''{ctx.author.mention} you aren't eligible for this''')
+        await ctx.send(embed=e)
+        
+@bot.command()
+async def ban(ctx, member: discord.Member, *, reason):
+    if ctx.author.permissions_in(ctx.channel).ban_members:
+        if reason is None:
+            await member.send(f'''You have been banned by {ctx.author.name} from {ctx.guild.name} due to __No reason given__ ''')
+            em = discord.Embed(title='Banned', colour=discord.Colour.dark_red(),
+                            description=f'''{member} has been banned''', timestamp= datetime.datetime.utcnow())
+            em.set_thumbnail(url=member.avatar_url)
+            em.add_field(name='Moderator', value=f'''{ctx.author.name}''', inline=False)
+            em.add_field(name='Culpret', value=f'''{member}''', inline=False)
+            em.add_field(name='Reason for Banning', value=f'''_No reason provided_''', inline=False)
+            await ctx.send(embed=em)
+            await member.ban()
+        else:
+            await member.send(f'''You have been Banned by {ctx.author.name} from {ctx.guild.name} due to {reason} ''')
+            em = discord.Embed(title='Banned', colour=discord.Colour.dark_red(),
+                                description=f'''{member} has been banned''', timestamp=datetime.datetime.utcnow())
+            em.set_thumbnail(url=member.avatar_url)
+            em.add_field(name='Moderator', value=f'''{ctx.author.name}''', inline=False)
+            em.add_field(name='Culprit', value=f'''{member}''', inline=False)
+            em.add_field(name='Reason for Banning', value=f'''{reason}''', inline=False)
+            await ctx.send(embed=em)
+            await member.ban()
+    else:
+       e = discord.Embed(title='Denied', colour=discord.Colour.gold(), description=f'''{ctx.author.mention} you aren't eligible for this''')
+    await ctx.send(embed=e) 
+    
+@bot.command()
+async def mute(ctx, user: discord.Member):
+        'Mutes a user'
+        try:
+            if ctx.author.guild_permissions.administrator:
+                role = discord.utils.get(ctx.guild.roles, name='muted')
+                await user.add_roles(role)
+                await ctx.send('Muted {}'.format(user.name))
+            else:
+                e = discord.Embed(title='Denied', colour=discord.Colour.gold(), description=f'''{ctx.author.mention} you aren't eligible for this''')
+            await ctx.send(embed=e)
+        except KeyboardInterrupt:
+            await ctx.send('User Not Found')
+            
+@bot.command()
+async def unmute(ctx, user: discord.Member):
+        'Unmutes a User'
+        try:
+            if ctx.author.guild_permissions.administrator:
+                role = discord.utils.get(ctx.guild.roles, name='muted')
+                await user.remove_roles(role)
+                await ctx.send('Unmuted {}'.format(user.name))
+            else:
+                e = discord.Embed(title='Denied', colour=discord.Colour.gold(), description=f'''{ctx.author.mention} you aren't eligible for this''')
+            await ctx.send(embed=e)
+        except discord.ext.commands.errors.BadArgument:
+            await ctx.send('User Not Found')
+            
+
+
+
+
+    
 
 
 
@@ -999,57 +709,20 @@ async def reload(ctx, extension):
 
 @bot.event
 async def on_command_error(ctx, err):
-    if ctx.guild.id == 494725137476616202:
+    if ctx.guild.id == 515059024098754564:
 
-        await ctx.channel.send(f'''_\n{type(err).__name__}: {err!s}_''')
-
-    if ctx.guild.id == 490190146843443201:
-        await ctx.channel.send(f'''_\n{type(err).__name__}: {err!s}_''')
-
-    if ctx.guild.id == 453472827526479874:
         await ctx.channel.send(f'''_\n{type(err).__name__}: {err!s}_''')
 
     if ctx.guild.id == 457729395122241537:
         await ctx.channel.send(f'''_\n{type(err).__name__}: {err!s}_''')
+
+    
     else:
         return
 
 
 
-@bot.event
-async def on_message(msg):
-    if 'gay' in msg.content.lower():
-        await msg.add_reaction(emoji= "😎")
-        await msg.add_reaction(emoji= "🎂")
-        await msg.add_reaction(emoji= "🎉")
-        await msg.add_reaction(emoji= "🎅")
-    await bot.process_commands(msg)
 
-    if 'hi' in msg.content.lower():
-        await msg.add_reaction(emoji= "👻")
-        await msg.add_reaction(emoji= "👋")
-        await msg.add_reaction(emoji= "😎")
-        await bot.process_commands(msg)
-
-    if 'hey' in msg.content.lower():
-        await msg.add_reaction(emoji= "🙌")
-        await msg.add_reaction(emoji= "👋")
-        await msg.add_reaction(emoji= "😎")
-        await bot.process_commands(msg)
-
-    if 'hello' in msg.content.lower():
-        await msg.add_reaction(emoji= "🎃")
-        await msg.add_reaction(emoji= "👋")
-        await msg.add_reaction(emoji= "😎")
-        await bot.process_commands(msg)
-
-    if 'server' in msg.content.lower():
-        await msg.add_reaction(emoji= "💢")
-        await msg.add_reaction(emoji= "❔")
-        await bot.process_commands(msg)
-
-    else:
-        return
 
 
 
@@ -1057,7 +730,7 @@ async def on_message(msg):
 
 @bot.event
 async def on_ready():
-    options = ('help via p?help', 'to ꧁ Garry꧂#2508', f'on {len(bot.guilds)} servers')
+    options = ('help via G.help', 'to Gavyn S. ✓ᵛᵉʳᶦᶠᶦᵉᵈ#0981', f'on {len(bot.guilds)} servers')
     while True:
         await bot.change_presence(activity=discord.Streaming(name=random.choice(options), url='https://www.twitch.tv/cohhcarnage'))
         await asyncio.sleep(10)
